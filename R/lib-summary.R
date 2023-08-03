@@ -3,6 +3,8 @@
 #' Searches for and enumerates R packages installed in various locations on your local machine.
 #' It takes no arguments.
 #'
+#' @param sizes a logical indicating whether or not to calculate sizes
+#'
 #' @return A data.frame containing the count of packages
 #'          in each of your libraries.
 #' @export
@@ -25,10 +27,9 @@ lib_summary <- function(sizes = FALSE) {
   names(pkg_df) <- c("library","n_packages")
 
   if (sizes) {
-    pkg_df$file_size = vapply(
+    pkg_df$file_size = map_dbl(
       pkg_df$library,
-      \(x) sum(fs::file_size(fs::dir_ls(x, recurse = TRUE))),
-      FUN.VALUE = double(1)
+      ~ sum(fs::file_size(fs::dir_ls(.x, recurse = TRUE)))
     )
 
     pkg_df$file_size_mb = paste0(round(pkg_df$file_size / 1000000,2), ' MB')

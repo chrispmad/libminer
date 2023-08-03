@@ -4,7 +4,10 @@
 \alias{lib_summary}
 \title{Enumerate installed R packages}
 \usage{
-lib_summary()
+lib_summary(sizes = FALSE)
+}
+\arguments{
+\item{sizes}{a logical indicating whether or not to calculate sizes}
 }
 \value{
 A data.frame containing the count of packages
