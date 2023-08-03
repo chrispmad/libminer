@@ -11,7 +11,7 @@
 #' \dontrun{
 #' lib_summary()
 #' }
-lib_summary <- function() {
+lib_summary <- function(sizes = FALSE) {
   # Check installed packages on machine.
   pkgs <- utils::installed.packages()
 
@@ -23,7 +23,17 @@ lib_summary <- function() {
 
   # Improve column names.
   names(pkg_df) <- c("library","n_packages")
-  ##
+
+  if (sizes) {
+    pkg_df$file_size = vapply(
+      pkg_df$library,
+      \(x) sum(fs::file_size(fs::dir_ls(x, recurse = TRUE))),
+      FUN.VALUE = double(1)
+    )
+
+    pkg_df$file_size_mb = paste0(round(pkg_df$file_size / 1000000,2), ' MB')
+  }
+
   # return the results
   pkg_df
 }

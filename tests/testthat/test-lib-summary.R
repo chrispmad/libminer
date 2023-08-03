@@ -21,5 +21,12 @@ test_that("lib_summary returns expected results", {
 })
 
 test_that("lib_summary fails appropriately", {
-  expect_error(lib_summary("foo"), "unused argument")
+  expect_error(lib_summary("foo"), "not interpretable as logical")
+})
+
+test_that("sizes argument works", {
+  result <- lib_summary(sizes = T)
+  expect_contains(names(result), 'file_size')
+  expect_type(result$file_size, 'double')
+  expect_type(result$file_size_mb, 'character')
 })
