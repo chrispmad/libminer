@@ -15,6 +15,7 @@ Searches for and enumerates R packages installed in various locations on your lo
 It takes no arguments.
 }
 \examples{
-all_pkgs <- lib_summary()
-all_pkgs
+\dontrun{
+lib_summary()
+}
 }

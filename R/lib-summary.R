@@ -8,8 +8,9 @@
 #' @export
 #'
 #' @examples
-#' all_pkgs <- lib_summary()
-#' all_pkgs
+#' \dontrun{
+#' lib_summary()
+#' }
 lib_summary <- function() {
   # Check installed packages on machine.
   pkgs <- utils::installed.packages()
