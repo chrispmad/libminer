@@ -10,7 +10,7 @@ lib_summary <- function() {
 
   # Improve column names.
   names(pkg_df) <- c("library","n_packages")
-
+  ##
   # return the results
   pkg_df
 }
