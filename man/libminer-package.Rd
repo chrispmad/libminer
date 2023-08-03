@@ -12,6 +12,7 @@ Enumerate the number of downloaded R packages on your local machine; searches mu
 Useful links:
 \itemize{
   \item \url{https://github.com/chrispmad/libminer}
+  \item \url{https://chrispmad.github.io/libminer/}
   \item Report bugs at \url{https://github.com/chrispmad/libminer/issues}
 }
 
