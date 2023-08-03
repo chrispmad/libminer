@@ -58,5 +58,7 @@ calculate_sizes = function(df){
 
   df$file_size_mb = paste0(round(df$file_size / 1000000,2), ' MB')
 
+  df$file_size_gb = paste0(round(df$file_size / 1000000000,2), ' GB')
+
   df
 }
